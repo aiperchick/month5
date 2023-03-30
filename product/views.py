@@ -2,7 +2,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Category, Product, Review
-from .serializers import CategorySerializer, ProductSerializer, ReviewSerializer
+from .serializers import CategorySerializer, ProductSerializer, ReviewSerializer, RatingSerializer
+
+
+@api_view(['GET'])
+def products_reviews_rating_view(request):
+    products = Product.objects.all()
+    serializer = RatingSerializer(products, many=True)
+    return Response(data=serializer.data)
 
 
 @api_view(['GET'])
