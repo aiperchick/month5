@@ -1,0 +1,10 @@
+db.sqlite3
+static
+media
+.idea
+venv
+.env
+__pycache__/
+shop_api.__pycache/
+product.__pycache/
+users.__pycache/
